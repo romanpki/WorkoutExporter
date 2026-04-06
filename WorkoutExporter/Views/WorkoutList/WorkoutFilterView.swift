@@ -8,12 +8,12 @@ struct WorkoutFilterView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Type d'activité") {
+                Section(String(localized: "filter.activityType")) {
                     Button {
                         viewModel.selectedActivityType = nil
                     } label: {
                         HStack {
-                            Text("Toutes les activités")
+                            Text("filter.allActivities")
                             Spacer()
                             if viewModel.selectedActivityType == nil {
                                 Image(systemName: "checkmark")
@@ -42,7 +42,7 @@ struct WorkoutFilterView: View {
                     }
                 }
             }
-            .navigationTitle("Filtres")
+            .navigationTitle(String(localized: "filter.title"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

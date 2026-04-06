@@ -5,27 +5,23 @@ struct WorkoutListView: View {
     @Environment(HealthKitManager.self) private var healthKitManager
     @State private var viewModel: WorkoutListViewModel?
     @State private var showFilter = false
-
-    private var vm: WorkoutListViewModel {
-        if let viewModel { return viewModel }
-        let vm = WorkoutListViewModel(healthKitManager: healthKitManager)
-        DispatchQueue.main.async { self.viewModel = vm }
-        return vm
-    }
+    @State private var showSettings = false
+    @State private var isSelecting = false
+    @State private var selectedWorkouts: Set<UUID> = []
 
     var body: some View {
         NavigationStack {
             Group {
                 if let viewModel {
                     if viewModel.isLoading && viewModel.workouts.isEmpty {
-                        ProgressView("Chargement des séances...")
+                        ProgressView(String(localized: "list.loading"))
                     } else if let error = viewModel.errorMessage, viewModel.workouts.isEmpty {
                         ContentUnavailableView {
-                            Label("Erreur", systemImage: "exclamationmark.triangle")
+                            Label(String(localized: "list.error"), systemImage: "exclamationmark.triangle")
                         } description: {
                             Text(error)
                         } actions: {
-                            Button("Réessayer") {
+                            Button(String(localized: "list.retry")) {
                                 Task { await viewModel.loadWorkouts() }
                             }
                         }
@@ -38,8 +34,28 @@ struct WorkoutListView: View {
                     ProgressView()
                 }
             }
-            .navigationTitle("Séances")
+            .navigationTitle(String(localized: "list.title"))
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showSettings = true
+                    } label: {
+                        Image(systemName: "gearshape")
+                    }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    if let viewModel, !viewModel.filteredWorkouts.isEmpty {
+                        Button {
+                            withAnimation {
+                                isSelecting.toggle()
+                                if !isSelecting { selectedWorkouts.removeAll() }
+                            }
+                        } label: {
+                            Text(isSelecting ? "OK" : String(localized: "batch.export"))
+                                .font(.subheadline)
+                        }
+                    }
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         showFilter = true
@@ -55,7 +71,7 @@ struct WorkoutListView: View {
                                     viewModel.sortOrder = order
                                 } label: {
                                     HStack {
-                                        Text(order.rawValue)
+                                        Text(order.displayName)
                                         if viewModel.sortOrder == order {
                                             Image(systemName: "checkmark")
                                         }
@@ -71,11 +87,14 @@ struct WorkoutListView: View {
             .searchable(text: Binding(
                 get: { viewModel?.searchText ?? "" },
                 set: { viewModel?.searchText = $0 }
-            ), prompt: "Rechercher une séance...")
+            ), prompt: Text("list.search"))
             .sheet(isPresented: $showFilter) {
                 if let viewModel {
                     WorkoutFilterView(viewModel: viewModel)
                 }
+            }
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
             }
             .task {
                 if viewModel == nil {
@@ -92,14 +111,85 @@ struct WorkoutListView: View {
     }
 
     private func workoutList(_ viewModel: WorkoutListViewModel) -> some View {
-        List(viewModel.filteredWorkouts, id: \.uuid) { workout in
-            NavigationLink(value: workout) {
-                WorkoutRowView(workout: workout)
+        VStack(spacing: 0) {
+            if isSelecting {
+                batchToolbar(viewModel)
+            }
+
+            List(viewModel.filteredWorkouts, id: \.uuid) { workout in
+                if isSelecting {
+                    HStack {
+                        Image(systemName: selectedWorkouts.contains(workout.uuid) ? "checkmark.circle.fill" : "circle")
+                            .foregroundStyle(selectedWorkouts.contains(workout.uuid) ? .blue : .secondary)
+                            .font(.title3)
+
+                        WorkoutRowView(workout: workout)
+                    }
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        if selectedWorkouts.contains(workout.uuid) {
+                            selectedWorkouts.remove(workout.uuid)
+                        } else {
+                            selectedWorkouts.insert(workout.uuid)
+                        }
+                    }
+                } else {
+                    NavigationLink(value: workout) {
+                        WorkoutRowView(workout: workout)
+                    }
+                }
+            }
+            .navigationDestination(for: HKWorkout.self) { workout in
+                WorkoutDetailView(workout: workout)
+            }
+            .listStyle(.plain)
+        }
+    }
+
+    private func batchToolbar(_ viewModel: WorkoutListViewModel) -> some View {
+        HStack {
+            Button {
+                if selectedWorkouts.count == viewModel.filteredWorkouts.count {
+                    selectedWorkouts.removeAll()
+                } else {
+                    selectedWorkouts = Set(viewModel.filteredWorkouts.map(\.uuid))
+                }
+            } label: {
+                Text(selectedWorkouts.count == viewModel.filteredWorkouts.count
+                     ? String(localized: "batch.deselectAll")
+                     : String(localized: "batch.selectAll"))
+                    .font(.subheadline)
+            }
+
+            Spacer()
+
+            Text("batch.selected \(selectedWorkouts.count)")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+
+            Spacer()
+
+            if !selectedWorkouts.isEmpty {
+                ShareLink(items: []) {
+                    Label(String(localized: "batch.export"), systemImage: "square.and.arrow.up")
+                        .font(.subheadline.bold())
+                }
+                .disabled(true) // Placeholder — real batch export handled by BatchExportView
+                .hidden()
+
+                NavigationLink {
+                    BatchExportView(
+                        workouts: viewModel.filteredWorkouts.filter { selectedWorkouts.contains($0.uuid) },
+                        healthKitManager: healthKitManager
+                    )
+                } label: {
+                    Label(String(localized: "batch.export"), systemImage: "square.and.arrow.up")
+                        .font(.subheadline.bold())
+                }
             }
         }
-        .navigationDestination(for: HKWorkout.self) { workout in
-            WorkoutDetailView(workout: workout)
-        }
-        .listStyle(.plain)
+        .padding(.horizontal)
+        .padding(.vertical, 8)
+        .background(Color(.secondarySystemBackground))
     }
 }

@@ -93,7 +93,6 @@ struct CSVExporter: ExportableFormat {
     private func findNearestValue(in samples: [SampleTimeSeries], to target: Date, tolerance: TimeInterval) -> Double? {
         guard !samples.isEmpty else { return nil }
 
-        // Binary search for efficiency
         var lo = 0
         var hi = samples.count - 1
 
@@ -127,8 +126,8 @@ enum ExportError: LocalizedError {
 
     var errorDescription: String? {
         switch self {
-        case .encodingFailed: "Échec de l'encodage des données."
-        case .noData: "Aucune donnée à exporter."
+        case .encodingFailed: String(localized: "export.error.encoding")
+        case .noData: String(localized: "export.error.noData")
         }
     }
 }

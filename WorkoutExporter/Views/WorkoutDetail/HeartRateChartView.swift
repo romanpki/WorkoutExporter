@@ -6,7 +6,7 @@ struct HeartRateChartView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Fréquence cardiaque")
+            Text("chart.heartRate")
                 .font(.headline)
 
             Chart(samples.indices, id: \.self) { index in

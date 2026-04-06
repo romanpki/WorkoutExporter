@@ -15,7 +15,7 @@ struct HealthKitPermissionView: View {
                 Text("WorkoutExporter")
                     .font(.largeTitle.bold())
 
-                Text("Exportez vos séances sportives depuis Apple Health dans le format de votre choix.")
+                Text("app.tagline")
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -24,14 +24,14 @@ struct HealthKitPermissionView: View {
 
             VStack(alignment: .leading, spacing: 16) {
                 PermissionRow(icon: "figure.run", color: .green,
-                              title: "Séances d'entraînement",
-                              subtitle: "Accéder à vos workouts enregistrés")
+                              title: String(localized: "permission.workouts"),
+                              subtitle: String(localized: "permission.workouts.subtitle"))
                 PermissionRow(icon: "location", color: .blue,
-                              title: "Tracés GPS",
-                              subtitle: "Lire les parcours de vos séances")
+                              title: String(localized: "permission.gps"),
+                              subtitle: String(localized: "permission.gps.subtitle"))
                 PermissionRow(icon: "heart", color: .red,
-                              title: "Données physiologiques",
-                              subtitle: "FC, cadence, puissance, vitesse")
+                              title: String(localized: "permission.physio"),
+                              subtitle: String(localized: "permission.physio.subtitle"))
             }
             .padding(.horizontal, 24)
 
@@ -45,7 +45,7 @@ struct HealthKitPermissionView: View {
             }
 
             if !healthKitManager.isAvailable {
-                Text("HealthKit n'est pas disponible sur cet appareil.")
+                Text("permission.unavailable")
                     .font(.callout)
                     .foregroundStyle(.secondary)
             }
@@ -55,7 +55,7 @@ struct HealthKitPermissionView: View {
                     await healthKitManager.requestAuthorization()
                 }
             } label: {
-                Text("Autoriser l'accès à Santé")
+                Text("permission.authorize")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .padding()

@@ -6,7 +6,17 @@ struct ContentView: View {
     var body: some View {
         Group {
             if healthKitManager.isAuthorized {
-                WorkoutListView()
+                TabView {
+                    WorkoutListView()
+                        .tabItem {
+                            Label(String(localized: "list.title"), systemImage: "figure.run")
+                        }
+
+                    StatsView()
+                        .tabItem {
+                            Label(String(localized: "stats.title"), systemImage: "chart.bar")
+                        }
+                }
             } else {
                 HealthKitPermissionView()
             }
