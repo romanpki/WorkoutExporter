@@ -21,7 +21,7 @@ struct WorkoutRowView: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
 
-                HStack(spacing: 12) {
+                HStack(spacing: 8) {
                     Label(UnitFormatters.formatDurationShort(workout.duration), systemImage: "clock")
 
                     if let distance = workout.totalDistance {
@@ -36,14 +36,19 @@ struct WorkoutRowView: View {
                 }
                 .font(.caption2)
                 .foregroundStyle(.secondary)
+                .lineLimit(1)
+                .fixedSize(horizontal: true, vertical: false)
             }
+            .layoutPriority(1)
 
-            Spacer()
+            Spacer(minLength: 4)
 
             Text(workout.sourceRevision.source.name)
                 .font(.caption2)
                 .foregroundStyle(.tertiary)
                 .lineLimit(1)
+                .truncationMode(.tail)
+                .frame(maxWidth: 120, alignment: .trailing)
         }
         .padding(.vertical, 4)
     }
