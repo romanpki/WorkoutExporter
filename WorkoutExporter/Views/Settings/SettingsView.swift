@@ -9,6 +9,8 @@ struct SettingsView: View {
 
         NavigationStack {
             List {
+                StravaConnectView()
+
                 Section(String(localized: "settings.units")) {
                     Picker(String(localized: "settings.units"), selection: $settings.unitSystem) {
                         ForEach(UnitSystem.allCases, id: \.self) { unit in

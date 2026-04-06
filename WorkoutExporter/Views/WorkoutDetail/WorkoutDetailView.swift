@@ -4,8 +4,10 @@ import HealthKit
 struct WorkoutDetailView: View {
     @Environment(HealthKitManager.self) private var healthKitManager
     @Environment(AppSettings.self) private var appSettings
+    @Environment(StravaAuthManager.self) private var stravaAuth
     @State private var viewModel: WorkoutDetailViewModel?
     @State private var exportViewModel: ExportViewModel?
+    @State private var stravaUploader: StravaUploader?
     @State private var showExportPicker = false
     let workout: HKWorkout
 
@@ -14,6 +16,10 @@ struct WorkoutDetailView: View {
             VStack(spacing: 20) {
                 headerSection
                 statsSection
+
+                if stravaAuth.isConnected {
+                    stravaSection
+                }
 
                 if let vm = viewModel {
                     if vm.isLoading {
@@ -84,9 +90,72 @@ struct WorkoutDetailView: View {
             if exportViewModel == nil {
                 exportViewModel = ExportViewModel(healthKitManager: healthKitManager, defaultFormat: appSettings.defaultExportFormat)
             }
+            if stravaUploader == nil {
+                stravaUploader = StravaUploader(authManager: stravaAuth, healthKitManager: healthKitManager)
+            }
             await viewModel?.loadDetailData()
         }
     }
+
+    // MARK: - Strava Upload Section
+
+    private var stravaSection: some View {
+        VStack(spacing: 8) {
+            if let uploader = stravaUploader {
+                if uploader.isUploading {
+                    HStack(spacing: 12) {
+                        ProgressView()
+                        if let progress = uploader.uploadProgress {
+                            Text(progress)
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    .padding()
+                } else if let activityID = uploader.uploadedActivityID {
+                    HStack(spacing: 8) {
+                        Image(systemName: "checkmark.circle.fill")
+                            .foregroundStyle(.green)
+                        Text("strava.upload.success")
+                            .font(.subheadline)
+                    }
+                    .padding()
+                } else {
+                    Button {
+                        Task { await uploader.upload(workout: workout) }
+                    } label: {
+                        HStack(spacing: 8) {
+                            Image(systemName: "arrow.up.circle.fill")
+                            Text("strava.upload.button")
+                        }
+                        .font(.subheadline.bold())
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
+                        .background(.orange)
+                        .foregroundStyle(.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                    }
+                    .padding(.horizontal)
+                }
+
+                if let error = uploader.errorMessage {
+                    VStack(spacing: 4) {
+                        Text(error)
+                            .font(.caption)
+                            .foregroundStyle(.red)
+                            .multilineTextAlignment(.center)
+                        Button(String(localized: "list.retry")) {
+                            Task { await uploader.upload(workout: workout) }
+                        }
+                        .font(.caption.bold())
+                    }
+                    .padding(.horizontal)
+                }
+            }
+        }
+    }
+
+    // MARK: - Header & Stats
 
     private var headerSection: some View {
         VStack(spacing: 8) {
