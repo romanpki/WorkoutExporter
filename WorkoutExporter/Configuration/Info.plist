@@ -15,15 +15,26 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>CFBundleIconName</key>
 	<string>AppIcon</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.roman.WorkoutExporter</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>workoutexporter</string>
+			</array>
+		</dict>
+	</array>
 	<key>NSHealthShareUsageDescription</key>
-	<string>WorkoutExporter a besoin d'accéder à vos données Santé pour lire vos séances d'entraînement et les exporter dans le format de votre choix (GPX, TCX, FIT, CSV, JSON, XML).</string>
+	<string>WorkoutExporter needs access to your Health data to read your workouts and export them in the format of your choice (GPX, TCX, FIT, CSV, JSON, XML).</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>WorkoutExporter ne modifie pas vos données Santé. Cette autorisation est requise par le système mais aucune donnée ne sera écrite.</string>
+	<string>WorkoutExporter does not modify your Health data. This permission is required by the system but no data will be written.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchScreen</key>
