@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkoutExporter — Exportez vos séances Apple Health</title>
+    <meta name="description" content="App iOS gratuite pour exporter vos workouts Apple Health en GPX, TCX, FIT, CSV, JSON et XML. Sans abonnement, sans compte, sans tracking.">
+    <meta property="og:title" content="WorkoutExporter">
+    <meta property="og:description" content="Exportez vos séances sportives Apple Health dans le format de votre choix.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://romanpki.github.io/WorkoutExporter">
+    <style>
+        :root {
+            --bg: #f8f9fa;
+            --card: #ffffff;
+            --text: #1d1d1f;
+            --text2: #6e6e73;
+            --accent: #0ea5a5;
+            --accent2: #2563eb;
+            --gradient: linear-gradient(135deg, #2563eb 0%, #0ea5a5 100%);
+            --radius: 16px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0a0a0a;
+                --card: #1c1c1e;
+                --text: #f5f5f7;
+                --text2: #98989d;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 24px 60px;
+        }
+
+        .hero-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text2);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .badge-appstore {
+            display: inline-block;
+            height: 54px;
+            transition: transform 0.2s;
+        }
+
+        .badge-appstore:hover {
+            transform: scale(1.05);
+        }
+
+        /* Formats */
+        .formats {
+            padding: 60px 0;
+        }
+
+        .formats h2 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .format-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+        }
+
+        .format-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 24px 16px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+
+        .format-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .format-card .name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .format-card .type {
+            font-size: 0.75rem;
+            color: var(--text2);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 4px;
+        }
+
+        .format-card .desc {
+            font-size: 0.85rem;
+            color: var(--text2);
+            margin-top: 8px;
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .feature .icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .feature h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            font-size: 0.95rem;
+            color: var(--text2);
+        }
+
+        /* How it works */
+        .how {
+            padding: 60px 0;
+        }
+
+        .how h2 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            counter-reset: step;
+        }
+
+        .step {
+            text-align: center;
+            counter-increment: step;
+        }
+
+        .step::before {
+            content: counter(step);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient);
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            color: var(--text2);
+        }
+
+        /* Privacy banner */
+        .privacy-banner {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .privacy-banner h2 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .privacy-banner p {
+            color: var(--text2);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .privacy-banner a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .privacy-banner a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: var(--text2);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Tech */
+        .tech {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .tech-pill {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 8px 18px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <img src="../icon.png" alt="WorkoutExporter icon" class="hero-icon">
+        <h1><span>WorkoutExporter</span></h1>
+        <p>Exportez vos séances sportives Apple Health dans le format de votre choix. Gratuit, sans compte, sans tracking.</p>
+        <!-- Uncomment when App Store link is available -->
+        <!-- <a href="https://apps.apple.com/app/workoutexporter/idXXXXXXXXXX">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="badge-appstore">
+        </a> -->
+    </section>
+
+    <!-- Formats -->
+    <section class="formats">
+        <div class="container">
+            <h2>6 formats d'export</h2>
+            <div class="format-grid">
+                <div class="format-card">
+                    <div class="name">GPX</div>
+                    <div class="type">XML</div>
+                    <div class="desc">Strava, Garmin Connect, Komoot</div>
+                </div>
+                <div class="format-card">
+                    <div class="name">TCX</div>
+                    <div class="type">XML</div>
+                    <div class="desc">Garmin, TrainingPeaks</div>
+                </div>
+                <div class="format-card">
+                    <div class="name">FIT</div>
+                    <div class="type">Binaire</div>
+                    <div class="desc">Format Garmin natif</div>
+                </div>
+                <div class="format-card">
+                    <div class="name">CSV</div>
+                    <div class="type">Texte</div>
+                    <div class="desc">Excel, Google Sheets</div>
+                </div>
+                <div class="format-card">
+                    <div class="name">JSON</div>
+                    <div class="type">Texte</div>
+                    <div class="desc">Dump brut complet</div>
+                </div>
+                <div class="format-card">
+                    <div class="name">XML</div>
+                    <div class="type">XML</div>
+                    <div class="desc">Style Apple Health Export</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <h2>Fonctionnalités</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <div class="icon">🏃‍♂️</div>
+                    <h3>Tous les sports</h3>
+                    <p>Course, vélo, natation, randonnée, yoga, HIIT, musculation et 60+ types d'activités enregistrés dans Apple Health.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">📍</div>
+                    <h3>Données complètes</h3>
+                    <p>Tracé GPS, fréquence cardiaque, cadence, puissance, vitesse, dénivelé, splits — tout ce que votre montre enregistre.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">📤</div>
+                    <h3>Partage flexible</h3>
+                    <p>Share Sheet iOS (AirDrop, Mail, Strava...) ou sauvegarde directe dans l'app Fichiers (iCloud Drive, local).</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🗺️</div>
+                    <h3>Visualisation</h3>
+                    <p>Carte du parcours avec MapKit et graphique de fréquence cardiaque avec Swift Charts pour chaque séance.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🔒</div>
+                    <h3>100% privé</h3>
+                    <p>Aucun serveur, aucun compte, aucun analytics. Vos données restent sur votre appareil, point final.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🆓</div>
+                    <h3>Gratuit</h3>
+                    <p>Toutes les fonctionnalités sont gratuites. Un pourboire optionnel est disponible pour soutenir le développement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how">
+        <div class="container">
+            <h2>Comment ça marche</h2>
+            <div class="steps">
+                <div class="step">
+                    <h3>Autorisez</h3>
+                    <p>L'app demande un accès en lecture seule à vos données Apple Health.</p>
+                </div>
+                <div class="step">
+                    <h3>Parcourez</h3>
+                    <p>Toutes vos séances s'affichent avec durée, distance, calories et app source.</p>
+                </div>
+                <div class="step">
+                    <h3>Explorez</h3>
+                    <p>Carte du parcours, graphique FC et statistiques détaillées pour chaque workout.</p>
+                </div>
+                <div class="step">
+                    <h3>Exportez</h3>
+                    <p>Choisissez le format et partagez ou enregistrez le fichier en un tap.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech -->
+    <section class="tech">
+        <div class="container">
+            <h2>100% natif Apple</h2>
+            <div class="tech-pills">
+                <span class="tech-pill">Swift</span>
+                <span class="tech-pill">SwiftUI</span>
+                <span class="tech-pill">HealthKit</span>
+                <span class="tech-pill">MapKit</span>
+                <span class="tech-pill">Swift Charts</span>
+                <span class="tech-pill">CoreLocation</span>
+                <span class="tech-pill">iOS 17+</span>
+                <span class="tech-pill">0 dépendance tierce</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy -->
+    <section class="container">
+        <div class="privacy-banner">
+            <h2>Vie privée</h2>
+            <p>WorkoutExporter ne collecte, ne transmet et ne stocke aucune donnée personnelle. Tout reste sur votre appareil.</p>
+            <br>
+            <a href="privacy.html">Lire la politique de confidentialité complète</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Roman Potocki. Tous droits réservés.</p>
+        <p style="margin-top: 8px;">
+            <a href="https://github.com/romanpki/WorkoutExporter">GitHub</a> &middot;
+            <a href="privacy.html">Confidentialité</a> &middot;
+            <a href="mailto:roman@potocki.dev">Contact</a>
+        </p>
+    </footer>
+
+</body>
+</html>

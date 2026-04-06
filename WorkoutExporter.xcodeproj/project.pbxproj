@@ -1,0 +1,604 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0413B70098AE33206BB985A4 /* WorkoutDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4ED391AB455A01197C1784 /* WorkoutDetailViewModel.swift */; };
+		068241DD6A1E1ADDCBB9EE35 /* GPXExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2425394E794A8DDE27C2C33 /* GPXExporter.swift */; };
+		09FF69C3A08FA45CCD655F8D /* FITDataMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC253FAE3BB296BAED9E8ADF /* FITDataMessage.swift */; };
+		0E8B92BCB635CDBCDF8EDBA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49EE8F0AE20036B44AC1EE3E /* Assets.xcassets */; };
+		0EE2E759DCC159D35640CEFC /* FITFieldDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BF60277DBEC99845261A9 /* FITFieldDefinitions.swift */; };
+		0F4133B1903F901501BB9138 /* UnitFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF492B577DBE7C19FBD5AE77 /* UnitFormatters.swift */; };
+		25BADA7BFBEB929C6CF09750 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA17B6980697001719B5E /* DateFormatters.swift */; };
+		2D1DDF0B1354972623100D9F /* FITDefinitionMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DFC22E7541AAD304D242C9 /* FITDefinitionMessage.swift */; };
+		2E2CE8F373050CF3899F2550 /* RoutePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3412C9DAE8B7D4247DDE5C /* RoutePoint.swift */; };
+		34DA495858651186D10F2A32 /* WorkoutFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64423B50CCA2DC56E3C854A /* WorkoutFetcher.swift */; };
+		34E34C022D4B4680C21F267E /* SampleTimeSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB3B2C4446D0F95A6C27B45 /* SampleTimeSeries.swift */; };
+		3B3012FAE790553A6209C495 /* FITBaseTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF4EE6DB5010034DE1EAF25 /* FITBaseTypes.swift */; };
+		3BAD7B9D9333C948A67170FA /* SampleFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB84D9B6B8DC53032313D62 /* SampleFetcher.swift */; };
+		42DB88CFB8AEEB5FF5A94708 /* ExportableFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F501CFFC50CBB876DED6C79 /* ExportableFormat.swift */; };
+		4FBCE3A212BEFAECA33E08D0 /* FITMessageTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D3C47D86D9CF5D85F0C16 /* FITMessageTypes.swift */; };
+		57EC01603A8BE86CC2F97F53 /* WorkoutListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F603C26205A3CB261C989DD /* WorkoutListViewModel.swift */; };
+		5DE10137BCD3F30B99D6E42A /* ExportFormatPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6520C961CC47E6E2A4C6155 /* ExportFormatPickerView.swift */; };
+		5EDF58E465D6B731CC4651DF /* ExportCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF43A0EACDC58CDC3011A742 /* ExportCoordinator.swift */; };
+		6A554CB54A1156CAE059A419 /* RouteMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E4E7B34738152F1F6459E5 /* RouteMapView.swift */; };
+		6B32325EAE8B6D5991E9D8A4 /* FITCRC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1431EF7774D8B4667309CAB7 /* FITCRC.swift */; };
+		75F330C68AC087E833739918 /* XMLExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5EDF6BA4F884EB34239932 /* XMLExporter.swift */; };
+		8016F9DE964F755B10DCC1F4 /* CSVExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F73AA5F9D63ED71180CAFD7 /* CSVExporter.swift */; };
+		8436035E147C89A6D18588A3 /* WorkoutData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63B9D4C107585D39A6423BC /* WorkoutData.swift */; };
+		8FD110803081442F6C958508 /* HealthKitPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373B0B67877407720356D4B6 /* HealthKitPermissionView.swift */; };
+		9228134E5FB9EAD59EA88ED4 /* WorkoutRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A22C8730DC1FC68DAC706 /* WorkoutRowView.swift */; };
+		93E8D2CF34C4853B15A38F33 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B29FC06B56B8A44B6DDCFD /* HealthKitManager.swift */; };
+		9A02038C922088E83771BDCD /* ExportFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401B8D4CC0EB216904650DE /* ExportFormat.swift */; };
+		9E525BF037CD8BEF570FDB6A /* ExportProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6EB6A8F0B3F5AC39C4FC21 /* ExportProgressView.swift */; };
+		9F310B740855688B6D6917F7 /* FITExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A3B999923E2F8065244E7E /* FITExporter.swift */; };
+		A7DD73C173A2AED20964C8FB /* WorkoutIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE4EA05576E7DF756A9D382 /* WorkoutIcon.swift */; };
+		AAF84307F105CA7DB0306FA4 /* WorkoutTypeMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B02155B6641C21047D0CC0 /* WorkoutTypeMapping.swift */; };
+		B0B1AA125C5F4F2C5C37044C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFABEF925AA68DBE0162591 /* ContentView.swift */; };
+		B7DEFC65E815990E0E12195D /* HeartRateChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC4E7F826EE342473856A17 /* HeartRateChartView.swift */; };
+		BCDFFB1479A724A6C25AE21E /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4207E0558B7C85FBF640C99C /* WorkoutDetailView.swift */; };
+		C526E72A7D3C73BCE851CC09 /* ExportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A574A9569DB1679A1E26C /* ExportViewModel.swift */; };
+		D9C7899A021066D55FA67384 /* WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019BC9B411121255D6933AA /* WorkoutListView.swift */; };
+		DB1496BE809AF04ADC1A11E7 /* WorkoutFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E65DCB89A1C91C65E1B923 /* WorkoutFilterView.swift */; };
+		E6277C232E739F8E8CC6955F /* StatCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13778967AC60F2A2B67569CE /* StatCard.swift */; };
+		EA2910CB683A86186137F70A /* RouteFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E06C242E0F70DE518A665C /* RouteFetcher.swift */; };
+		EA61CCE96F0DDC93E7BAED9B /* XMLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9245FB7773E71098C631A572 /* XMLBuilder.swift */; };
+		EE5D805FB2852ED347CEF85B /* WorkoutSplit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F2A702A1A5CFDA5D9ABB50 /* WorkoutSplit.swift */; };
+		EF5639FAF8FC75FFC7589B46 /* TCXExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC91E6F90160CE61638531DB /* TCXExporter.swift */; };
+		F33416D16C778477A48E413B /* JSONExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868DE2644081547102F393D7 /* JSONExporter.swift */; };
+		F76A242B17EB8C4F7A3865FE /* WorkoutExporterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140B7D5AB927190658CC39D /* WorkoutExporterApp.swift */; };
+		FE1F79E9365CC4F30E900B92 /* FITEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5F048ED03FF78EA8707B41 /* FITEncoder.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		11DFC22E7541AAD304D242C9 /* FITDefinitionMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FITDefinitionMessage.swift; sourceTree = "<group>"; };
+		13778967AC60F2A2B67569CE /* StatCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCard.swift; sourceTree = "<group>"; };
+		1431EF7774D8B4667309CAB7 /* FITCRC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FITCRC.swift; sourceTree = "<group>"; };
+		148BF60277DBEC99845261A9 /* FITFieldDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FITFieldDefinitions.swift; sourceTree = "<group>"; };
+		373B0B67877407720356D4B6 /* HealthKitPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitPermissionView.swift; sourceTree = "<group>"; };
+		385A574A9569DB1679A1E26C /* ExportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportViewModel.swift; sourceTree = "<group>"; };
+		3CE4EA05576E7DF756A9D382 /* WorkoutIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutIcon.swift; sourceTree = "<group>"; };
+		4207E0558B7C85FBF640C99C /* WorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
+		49EE8F0AE20036B44AC1EE3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4F73AA5F9D63ED71180CAFD7 /* CSVExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVExporter.swift; sourceTree = "<group>"; };
+		50E65DCB89A1C91C65E1B923 /* WorkoutFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFilterView.swift; sourceTree = "<group>"; };
+		61A3B999923E2F8065244E7E /* FITExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FITExporter.swift; sourceTree = "<group>"; };
+		67E06C242E0F70DE518A665C /* RouteFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteFetcher.swift; sourceTree = "<group>"; };
+		6D5EDF6BA4F884EB34239932 /* XMLExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLExporter.swift; sourceTree = "<group>"; };
+		6D5F048ED03FF78EA8707B41 /* FITEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FITEncoder.swift; sourceTree = "<group>"; };
+		6DFABEF925AA68DBE0162591 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		77C717C0C7D23649178636E7 /* WorkoutExporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutExporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AC4E7F826EE342473856A17 /* HeartRateChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateChartView.swift; sourceTree = "<group>"; };
+		7C3412C9DAE8B7D4247DDE5C /* RoutePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePoint.swift; sourceTree = "<group>"; };
+		7C4ED391AB455A01197C1784 /* WorkoutDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewModel.swift; sourceTree = "<group>"; };
+		7F603C26205A3CB261C989DD /* WorkoutListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListViewModel.swift; sourceTree = "<group>"; };
+		8019BC9B411121255D6933AA /* WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListView.swift; sourceTree = "<group>"; };
+		868DE2644081547102F393D7 /* JSONExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONExporter.swift; sourceTree = "<group>"; };
+		881D3C47D86D9CF5D85F0C16 /* FITMessageTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FITMessageTypes.swift; sourceTree = "<group>"; };
+		8AF4EE6DB5010034DE1EAF25 /* FITBaseTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FITBaseTypes.swift; sourceTree = "<group>"; };
+		8F501CFFC50CBB876DED6C79 /* ExportableFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportableFormat.swift; sourceTree = "<group>"; };
+		9245FB7773E71098C631A572 /* XMLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLBuilder.swift; sourceTree = "<group>"; };
+		9401B8D4CC0EB216904650DE /* ExportFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportFormat.swift; sourceTree = "<group>"; };
+		9BB3B2C4446D0F95A6C27B45 /* SampleTimeSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTimeSeries.swift; sourceTree = "<group>"; };
+		A40A22C8730DC1FC68DAC706 /* WorkoutRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutRowView.swift; sourceTree = "<group>"; };
+		A63B9D4C107585D39A6423BC /* WorkoutData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutData.swift; sourceTree = "<group>"; };
+		AC91E6F90160CE61638531DB /* TCXExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCXExporter.swift; sourceTree = "<group>"; };
+		AD0CA17B6980697001719B5E /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
+		AD6EB6A8F0B3F5AC39C4FC21 /* ExportProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportProgressView.swift; sourceTree = "<group>"; };
+		B6F2A702A1A5CFDA5D9ABB50 /* WorkoutSplit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSplit.swift; sourceTree = "<group>"; };
+		BBB84D9B6B8DC53032313D62 /* SampleFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleFetcher.swift; sourceTree = "<group>"; };
+		C64423B50CCA2DC56E3C854A /* WorkoutFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFetcher.swift; sourceTree = "<group>"; };
+		C7B02155B6641C21047D0CC0 /* WorkoutTypeMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTypeMapping.swift; sourceTree = "<group>"; };
+		C8E4E7B34738152F1F6459E5 /* RouteMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapView.swift; sourceTree = "<group>"; };
+		D140B7D5AB927190658CC39D /* WorkoutExporterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExporterApp.swift; sourceTree = "<group>"; };
+		DC253FAE3BB296BAED9E8ADF /* FITDataMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FITDataMessage.swift; sourceTree = "<group>"; };
+		E2425394E794A8DDE27C2C33 /* GPXExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXExporter.swift; sourceTree = "<group>"; };
+		E5B29FC06B56B8A44B6DDCFD /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		E6520C961CC47E6E2A4C6155 /* ExportFormatPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportFormatPickerView.swift; sourceTree = "<group>"; };
+		FF43A0EACDC58CDC3011A742 /* ExportCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportCoordinator.swift; sourceTree = "<group>"; };
+		FF492B577DBE7C19FBD5AE77 /* UnitFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitFormatters.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		044859DC7EE4169728CCE41F /* FIT */ = {
+			isa = PBXGroup;
+			children = (
+				8AF4EE6DB5010034DE1EAF25 /* FITBaseTypes.swift */,
+				1431EF7774D8B4667309CAB7 /* FITCRC.swift */,
+				DC253FAE3BB296BAED9E8ADF /* FITDataMessage.swift */,
+				11DFC22E7541AAD304D242C9 /* FITDefinitionMessage.swift */,
+				6D5F048ED03FF78EA8707B41 /* FITEncoder.swift */,
+				148BF60277DBEC99845261A9 /* FITFieldDefinitions.swift */,
+				881D3C47D86D9CF5D85F0C16 /* FITMessageTypes.swift */,
+			);
+			path = FIT;
+			sourceTree = "<group>";
+		};
+		2D7EEA3CBDC3219AE6D0E837 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AD0CA17B6980697001719B5E /* DateFormatters.swift */,
+				FF492B577DBE7C19FBD5AE77 /* UnitFormatters.swift */,
+				C7B02155B6641C21047D0CC0 /* WorkoutTypeMapping.swift */,
+				9245FB7773E71098C631A572 /* XMLBuilder.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		2EBF4FDA7A99C6C758A902D4 /* Export */ = {
+			isa = PBXGroup;
+			children = (
+				8F501CFFC50CBB876DED6C79 /* ExportableFormat.swift */,
+				FF43A0EACDC58CDC3011A742 /* ExportCoordinator.swift */,
+				044859DC7EE4169728CCE41F /* FIT */,
+				5971F48589328C361B1025A7 /* Formats */,
+			);
+			path = Export;
+			sourceTree = "<group>";
+		};
+		48AC87C051896CB68D644B16 /* WorkoutDetail */ = {
+			isa = PBXGroup;
+			children = (
+				7AC4E7F826EE342473856A17 /* HeartRateChartView.swift */,
+				C8E4E7B34738152F1F6459E5 /* RouteMapView.swift */,
+				4207E0558B7C85FBF640C99C /* WorkoutDetailView.swift */,
+			);
+			path = WorkoutDetail;
+			sourceTree = "<group>";
+		};
+		562D3DEEA7AEDB615022E74B /* WorkoutExporter */ = {
+			isa = PBXGroup;
+			children = (
+				49EE8F0AE20036B44AC1EE3E /* Assets.xcassets */,
+				7A1EA0120D0751E79FD26406 /* App */,
+				6E2D74BF84D663A50B3CEA29 /* Models */,
+				71AD0BFF8FBB0EBF250FE28E /* Services */,
+				2D7EEA3CBDC3219AE6D0E837 /* Utilities */,
+				E0F2709604BE55AA5A81E0CE /* ViewModels */,
+				94B7D8971776AA3890E4D35A /* Views */,
+			);
+			path = WorkoutExporter;
+			sourceTree = "<group>";
+		};
+		5971F48589328C361B1025A7 /* Formats */ = {
+			isa = PBXGroup;
+			children = (
+				4F73AA5F9D63ED71180CAFD7 /* CSVExporter.swift */,
+				61A3B999923E2F8065244E7E /* FITExporter.swift */,
+				E2425394E794A8DDE27C2C33 /* GPXExporter.swift */,
+				868DE2644081547102F393D7 /* JSONExporter.swift */,
+				AC91E6F90160CE61638531DB /* TCXExporter.swift */,
+				6D5EDF6BA4F884EB34239932 /* XMLExporter.swift */,
+			);
+			path = Formats;
+			sourceTree = "<group>";
+		};
+		5D02C29E305FDFFB9EEE018D /* Export */ = {
+			isa = PBXGroup;
+			children = (
+				E6520C961CC47E6E2A4C6155 /* ExportFormatPickerView.swift */,
+				AD6EB6A8F0B3F5AC39C4FC21 /* ExportProgressView.swift */,
+			);
+			path = Export;
+			sourceTree = "<group>";
+		};
+		6E2D74BF84D663A50B3CEA29 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9401B8D4CC0EB216904650DE /* ExportFormat.swift */,
+				7C3412C9DAE8B7D4247DDE5C /* RoutePoint.swift */,
+				9BB3B2C4446D0F95A6C27B45 /* SampleTimeSeries.swift */,
+				A63B9D4C107585D39A6423BC /* WorkoutData.swift */,
+				B6F2A702A1A5CFDA5D9ABB50 /* WorkoutSplit.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		71AD0BFF8FBB0EBF250FE28E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2EBF4FDA7A99C6C758A902D4 /* Export */,
+				B8A6BB1E374D4F61B706C38C /* HealthKit */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7A1EA0120D0751E79FD26406 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D140B7D5AB927190658CC39D /* WorkoutExporterApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8D595BE72FB2188F21CC6EA1 = {
+			isa = PBXGroup;
+			children = (
+				562D3DEEA7AEDB615022E74B /* WorkoutExporter */,
+				C78479FA6FD0A9037D0E8101 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		94B7D8971776AA3890E4D35A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6DFABEF925AA68DBE0162591 /* ContentView.swift */,
+				AF9C1AB9187ED3FE0F325431 /* Components */,
+				5D02C29E305FDFFB9EEE018D /* Export */,
+				98D78EE4644AE54B8A7E247A /* Onboarding */,
+				48AC87C051896CB68D644B16 /* WorkoutDetail */,
+				F25ABE5C627A724F5CF8377C /* WorkoutList */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		98D78EE4644AE54B8A7E247A /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				373B0B67877407720356D4B6 /* HealthKitPermissionView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		AF9C1AB9187ED3FE0F325431 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				13778967AC60F2A2B67569CE /* StatCard.swift */,
+				3CE4EA05576E7DF756A9D382 /* WorkoutIcon.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B8A6BB1E374D4F61B706C38C /* HealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				E5B29FC06B56B8A44B6DDCFD /* HealthKitManager.swift */,
+				67E06C242E0F70DE518A665C /* RouteFetcher.swift */,
+				BBB84D9B6B8DC53032313D62 /* SampleFetcher.swift */,
+				C64423B50CCA2DC56E3C854A /* WorkoutFetcher.swift */,
+			);
+			path = HealthKit;
+			sourceTree = "<group>";
+		};
+		C78479FA6FD0A9037D0E8101 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				77C717C0C7D23649178636E7 /* WorkoutExporter.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E0F2709604BE55AA5A81E0CE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				385A574A9569DB1679A1E26C /* ExportViewModel.swift */,
+				7C4ED391AB455A01197C1784 /* WorkoutDetailViewModel.swift */,
+				7F603C26205A3CB261C989DD /* WorkoutListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F25ABE5C627A724F5CF8377C /* WorkoutList */ = {
+			isa = PBXGroup;
+			children = (
+				50E65DCB89A1C91C65E1B923 /* WorkoutFilterView.swift */,
+				8019BC9B411121255D6933AA /* WorkoutListView.swift */,
+				A40A22C8730DC1FC68DAC706 /* WorkoutRowView.swift */,
+			);
+			path = WorkoutList;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D11AA31AB7089E66BF3F0B77 /* WorkoutExporter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72CB5518EE2E92B4B9D72CD7 /* Build configuration list for PBXNativeTarget "WorkoutExporter" */;
+			buildPhases = (
+				DA505A34E0FB269B744E7937 /* Sources */,
+				B3CB20068020E1D3BBFCDB50 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WorkoutExporter;
+			packageProductDependencies = (
+			);
+			productName = WorkoutExporter;
+			productReference = 77C717C0C7D23649178636E7 /* WorkoutExporter.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A6BC5493FA7DD01DB64ECF7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					D11AA31AB7089E66BF3F0B77 = {
+						SystemCapabilities = "[\"com.apple.HealthKit\": [\"enabled\": true]]";
+					};
+				};
+			};
+			buildConfigurationList = 9420FB54C6ACE2D5D144C91D /* Build configuration list for PBXProject "WorkoutExporter" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 8D595BE72FB2188F21CC6EA1;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = C78479FA6FD0A9037D0E8101 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D11AA31AB7089E66BF3F0B77 /* WorkoutExporter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B3CB20068020E1D3BBFCDB50 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E8B92BCB635CDBCDF8EDBA6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA505A34E0FB269B744E7937 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8016F9DE964F755B10DCC1F4 /* CSVExporter.swift in Sources */,
+				B0B1AA125C5F4F2C5C37044C /* ContentView.swift in Sources */,
+				25BADA7BFBEB929C6CF09750 /* DateFormatters.swift in Sources */,
+				5EDF58E465D6B731CC4651DF /* ExportCoordinator.swift in Sources */,
+				9A02038C922088E83771BDCD /* ExportFormat.swift in Sources */,
+				5DE10137BCD3F30B99D6E42A /* ExportFormatPickerView.swift in Sources */,
+				9E525BF037CD8BEF570FDB6A /* ExportProgressView.swift in Sources */,
+				C526E72A7D3C73BCE851CC09 /* ExportViewModel.swift in Sources */,
+				42DB88CFB8AEEB5FF5A94708 /* ExportableFormat.swift in Sources */,
+				3B3012FAE790553A6209C495 /* FITBaseTypes.swift in Sources */,
+				6B32325EAE8B6D5991E9D8A4 /* FITCRC.swift in Sources */,
+				09FF69C3A08FA45CCD655F8D /* FITDataMessage.swift in Sources */,
+				2D1DDF0B1354972623100D9F /* FITDefinitionMessage.swift in Sources */,
+				FE1F79E9365CC4F30E900B92 /* FITEncoder.swift in Sources */,
+				9F310B740855688B6D6917F7 /* FITExporter.swift in Sources */,
+				0EE2E759DCC159D35640CEFC /* FITFieldDefinitions.swift in Sources */,
+				4FBCE3A212BEFAECA33E08D0 /* FITMessageTypes.swift in Sources */,
+				068241DD6A1E1ADDCBB9EE35 /* GPXExporter.swift in Sources */,
+				93E8D2CF34C4853B15A38F33 /* HealthKitManager.swift in Sources */,
+				8FD110803081442F6C958508 /* HealthKitPermissionView.swift in Sources */,
+				B7DEFC65E815990E0E12195D /* HeartRateChartView.swift in Sources */,
+				F33416D16C778477A48E413B /* JSONExporter.swift in Sources */,
+				EA2910CB683A86186137F70A /* RouteFetcher.swift in Sources */,
+				6A554CB54A1156CAE059A419 /* RouteMapView.swift in Sources */,
+				2E2CE8F373050CF3899F2550 /* RoutePoint.swift in Sources */,
+				3BAD7B9D9333C948A67170FA /* SampleFetcher.swift in Sources */,
+				34E34C022D4B4680C21F267E /* SampleTimeSeries.swift in Sources */,
+				E6277C232E739F8E8CC6955F /* StatCard.swift in Sources */,
+				EF5639FAF8FC75FFC7589B46 /* TCXExporter.swift in Sources */,
+				0F4133B1903F901501BB9138 /* UnitFormatters.swift in Sources */,
+				8436035E147C89A6D18588A3 /* WorkoutData.swift in Sources */,
+				BCDFFB1479A724A6C25AE21E /* WorkoutDetailView.swift in Sources */,
+				0413B70098AE33206BB985A4 /* WorkoutDetailViewModel.swift in Sources */,
+				F76A242B17EB8C4F7A3865FE /* WorkoutExporterApp.swift in Sources */,
+				34DA495858651186D10F2A32 /* WorkoutFetcher.swift in Sources */,
+				DB1496BE809AF04ADC1A11E7 /* WorkoutFilterView.swift in Sources */,
+				A7DD73C173A2AED20964C8FB /* WorkoutIcon.swift in Sources */,
+				D9C7899A021066D55FA67384 /* WorkoutListView.swift in Sources */,
+				57EC01603A8BE86CC2F97F53 /* WorkoutListViewModel.swift in Sources */,
+				9228134E5FB9EAD59EA88ED4 /* WorkoutRowView.swift in Sources */,
+				EE5D805FB2852ED347CEF85B /* WorkoutSplit.swift in Sources */,
+				AAF84307F105CA7DB0306FA4 /* WorkoutTypeMapping.swift in Sources */,
+				EA61CCE96F0DDC93E7BAED9B /* XMLBuilder.swift in Sources */,
+				75F330C68AC087E833739918 /* XMLExporter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9326A5380C43C84B9ECBFC3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WorkoutExporter/WorkoutExporter.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = Y7SPQ4G5NY;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = WorkoutExporter/Configuration/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.roman.WorkoutExporter;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		98AF8920E89D08CC22DF2E98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WorkoutExporter/WorkoutExporter.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = Y7SPQ4G5NY;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = WorkoutExporter/Configuration/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.roman.WorkoutExporter;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B28C0099555CB4FE0ABBB51B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F63555457624EC26AA12836A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		72CB5518EE2E92B4B9D72CD7 /* Build configuration list for PBXNativeTarget "WorkoutExporter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9326A5380C43C84B9ECBFC3F /* Debug */,
+				98AF8920E89D08CC22DF2E98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9420FB54C6ACE2D5D144C91D /* Build configuration list for PBXProject "WorkoutExporter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F63555457624EC26AA12836A /* Debug */,
+				B28C0099555CB4FE0ABBB51B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A6BC5493FA7DD01DB64ECF7 /* Project object */;
+}
