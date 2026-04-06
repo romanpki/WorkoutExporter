@@ -170,13 +170,6 @@ struct WorkoutListView: View {
             Spacer()
 
             if !selectedWorkouts.isEmpty {
-                ShareLink(items: []) {
-                    Label(String(localized: "batch.export"), systemImage: "square.and.arrow.up")
-                        .font(.subheadline.bold())
-                }
-                .disabled(true) // Placeholder — real batch export handled by BatchExportView
-                .hidden()
-
                 NavigationLink {
                     BatchExportView(
                         workouts: viewModel.filteredWorkouts.filter { selectedWorkouts.contains($0.uuid) },
