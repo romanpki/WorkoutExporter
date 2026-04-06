@@ -9,6 +9,22 @@ final class HealthKitManager {
 
     let healthStore = HKHealthStore()
 
+    // MARK: - In-memory cache
+
+    private var cachedWorkoutData: [UUID: WorkoutData] = [:]
+
+    func cachedData(for workoutID: UUID) -> WorkoutData? {
+        cachedWorkoutData[workoutID]
+    }
+
+    func cacheData(_ data: WorkoutData, for workoutID: UUID) {
+        cachedWorkoutData[workoutID] = data
+    }
+
+    func clearCache() {
+        cachedWorkoutData.removeAll()
+    }
+
     private static let readTypes: Set<HKObjectType> = {
         var types: Set<HKObjectType> = [
             HKObjectType.workoutType(),
@@ -34,7 +50,7 @@ final class HealthKitManager {
 
     func requestAuthorization() async {
         guard isAvailable else {
-            authorizationError = "HealthKit n'est pas disponible sur cet appareil."
+            authorizationError = String(localized: "permission.unavailable")
             return
         }
 

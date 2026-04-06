@@ -11,11 +11,21 @@ final class WorkoutListViewModel {
     var sortOrder: SortOrder = .dateDescending
 
     enum SortOrder: String, CaseIterable {
-        case dateDescending = "Plus récent"
-        case dateAscending = "Plus ancien"
-        case durationDescending = "Durée ↓"
-        case distanceDescending = "Distance ↓"
-        case caloriesDescending = "Calories ↓"
+        case dateDescending
+        case dateAscending
+        case durationDescending
+        case distanceDescending
+        case caloriesDescending
+
+        var displayName: String {
+            switch self {
+            case .dateDescending: String(localized: "sort.dateDesc")
+            case .dateAscending: String(localized: "sort.dateAsc")
+            case .durationDescending: String(localized: "sort.duration")
+            case .distanceDescending: String(localized: "sort.distance")
+            case .caloriesDescending: String(localized: "sort.calories")
+            }
+        }
     }
 
     var filteredWorkouts: [HKWorkout] {

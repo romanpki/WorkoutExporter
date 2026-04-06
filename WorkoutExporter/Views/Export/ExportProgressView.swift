@@ -4,7 +4,7 @@ struct ExportProgressView: View {
     var body: some View {
         HStack(spacing: 12) {
             ProgressView()
-            Text("Export en cours...")
+            Text("export.inProgress")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
         }

@@ -46,6 +46,12 @@ final class WorkoutDetailViewModel {
     }
 
     func loadDetailData() async {
+        // Check cache first
+        if let cached = healthKitManager.cachedData(for: workout.uuid) {
+            workoutData = cached
+            return
+        }
+
         guard workoutData == nil else { return }
 
         isLoading = true
@@ -53,7 +59,9 @@ final class WorkoutDetailViewModel {
 
         do {
             let coordinator = ExportCoordinator(healthKitManager: healthKitManager)
-            workoutData = try await coordinator.hydrateWorkout(workout)
+            let data = try await coordinator.hydrateWorkout(workout)
+            workoutData = data
+            healthKitManager.cacheData(data, for: workout.uuid)
         } catch {
             errorMessage = error.localizedDescription
         }

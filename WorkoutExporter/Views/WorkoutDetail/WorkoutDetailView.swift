@@ -3,6 +3,7 @@ import HealthKit
 
 struct WorkoutDetailView: View {
     @Environment(HealthKitManager.self) private var healthKitManager
+    @Environment(AppSettings.self) private var appSettings
     @State private var viewModel: WorkoutDetailViewModel?
     @State private var exportViewModel: ExportViewModel?
     @State private var showExportPicker = false
@@ -16,12 +17,12 @@ struct WorkoutDetailView: View {
 
                 if let vm = viewModel {
                     if vm.isLoading {
-                        ProgressView("Chargement des données détaillées...")
+                        ProgressView(String(localized: "detail.loading"))
                             .padding()
                     }
 
                     if let data = vm.workoutData, !data.route.isEmpty {
-                        RouteMapView(route: data.route)
+                        RouteMapView(route: data.route, heartRateSamples: data.heartRateSamples)
                             .frame(height: 250)
                             .clipShape(RoundedRectangle(cornerRadius: 12))
                             .padding(.horizontal)
@@ -34,10 +35,16 @@ struct WorkoutDetailView: View {
                     }
 
                     if let error = vm.errorMessage {
-                        Text(error)
-                            .font(.caption)
-                            .foregroundStyle(.red)
-                            .padding()
+                        VStack(spacing: 8) {
+                            Text(error)
+                                .font(.caption)
+                                .foregroundStyle(.red)
+                            Button(String(localized: "list.retry")) {
+                                Task { await vm.loadDetailData() }
+                            }
+                            .font(.caption.bold())
+                        }
+                        .padding()
                     }
                 }
             }
@@ -75,7 +82,7 @@ struct WorkoutDetailView: View {
                 viewModel = WorkoutDetailViewModel(workout: workout, healthKitManager: healthKitManager)
             }
             if exportViewModel == nil {
-                exportViewModel = ExportViewModel(healthKitManager: healthKitManager)
+                exportViewModel = ExportViewModel(healthKitManager: healthKitManager, defaultFormat: appSettings.defaultExportFormat)
             }
             await viewModel?.loadDetailData()
         }
@@ -94,7 +101,7 @@ struct WorkoutDetailView: View {
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
 
-            Text("Source : \(workout.sourceRevision.source.name)")
+            Text("detail.source \(workout.sourceRevision.source.name)")
                 .font(.caption)
                 .foregroundStyle(.tertiary)
         }
@@ -106,34 +113,34 @@ struct WorkoutDetailView: View {
             GridItem(.flexible()),
             GridItem(.flexible())
         ], spacing: 12) {
-            StatCard(title: "Durée", value: UnitFormatters.formatDuration(workout.duration), icon: "clock")
+            StatCard(title: String(localized: "detail.duration"), value: UnitFormatters.formatDuration(workout.duration), icon: "clock")
 
             if let distance = workout.totalDistance {
-                StatCard(title: "Distance",
+                StatCard(title: String(localized: "detail.distance"),
                          value: UnitFormatters.formatDistance(distance.doubleValue(for: .meter())),
                          icon: "ruler")
             }
 
             if let energy = workout.totalEnergyBurned {
-                StatCard(title: "Calories",
+                StatCard(title: String(localized: "detail.calories"),
                          value: UnitFormatters.formatCalories(energy.doubleValue(for: .kilocalorie())),
                          icon: "flame")
             }
 
             if let avgHR = viewModel?.averageHeartRate {
-                StatCard(title: "FC moy.",
+                StatCard(title: String(localized: "detail.avgHR"),
                          value: UnitFormatters.formatHeartRate(avgHR),
                          icon: "heart")
             }
 
             if let maxHR = viewModel?.maxHeartRate {
-                StatCard(title: "FC max",
+                StatCard(title: String(localized: "detail.maxHR"),
                          value: UnitFormatters.formatHeartRate(maxHR),
                          icon: "heart.fill")
             }
 
             if let data = viewModel?.workoutData, !data.route.isEmpty {
-                StatCard(title: "Points GPS",
+                StatCard(title: String(localized: "detail.gpsPoints"),
                          value: "\(data.route.count)",
                          icon: "location")
             }

@@ -9,7 +9,7 @@ struct ExportFormatPickerView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 16) {
-                Text("Choisir le format d'export")
+                Text("export.chooseFormat")
                     .font(.headline)
                     .padding(.top)
 
@@ -40,10 +40,19 @@ struct ExportFormatPickerView: View {
                 if viewModel.isExporting {
                     ExportProgressView()
                 } else if let error = viewModel.errorMessage {
-                    Text(error)
-                        .font(.caption)
-                        .foregroundStyle(.red)
-                        .padding(.horizontal)
+                    VStack(spacing: 8) {
+                        Text(error)
+                            .font(.caption)
+                            .foregroundStyle(.red)
+                        Button(String(localized: "list.retry")) {
+                            Task {
+                                await viewModel.exportWorkout(workout, format: viewModel.selectedFormat)
+                                if viewModel.errorMessage == nil { dismiss() }
+                            }
+                        }
+                        .font(.caption.bold())
+                    }
+                    .padding(.horizontal)
                 }
 
                 Button {
@@ -54,7 +63,7 @@ struct ExportFormatPickerView: View {
                         }
                     }
                 } label: {
-                    Label("Exporter en \(viewModel.selectedFormat.displayName)", systemImage: "square.and.arrow.up")
+                    Label("export.button \(viewModel.selectedFormat.displayName)", systemImage: "square.and.arrow.up")
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding()
@@ -69,7 +78,7 @@ struct ExportFormatPickerView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Annuler") { dismiss() }
+                    Button(String(localized: "export.cancel")) { dismiss() }
                 }
             }
         }

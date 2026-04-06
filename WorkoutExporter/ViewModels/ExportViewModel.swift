@@ -3,7 +3,7 @@ import HealthKit
 
 @Observable
 final class ExportViewModel {
-    var selectedFormat: ExportFormat = .gpx
+    var selectedFormat: ExportFormat
     var isExporting = false
     var exportedFileURL: URL?
     var errorMessage: String?
@@ -11,8 +11,9 @@ final class ExportViewModel {
 
     private let healthKitManager: HealthKitManager
 
-    init(healthKitManager: HealthKitManager) {
+    init(healthKitManager: HealthKitManager, defaultFormat: ExportFormat = .gpx) {
         self.healthKitManager = healthKitManager
+        self.selectedFormat = defaultFormat
     }
 
     func exportWorkout(_ workout: HKWorkout, format: ExportFormat) async {

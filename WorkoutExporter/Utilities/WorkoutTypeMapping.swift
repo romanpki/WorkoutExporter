@@ -4,85 +4,85 @@ import HealthKit
 enum WorkoutTypeMapping {
     static func name(for type: HKWorkoutActivityType) -> String {
         switch type {
-        case .americanFootball: "Football américain"
-        case .archery: "Tir à l'arc"
-        case .australianFootball: "Football australien"
-        case .badminton: "Badminton"
-        case .baseball: "Baseball"
-        case .basketball: "Basketball"
-        case .bowling: "Bowling"
-        case .boxing: "Boxe"
-        case .climbing: "Escalade"
-        case .cricket: "Cricket"
-        case .crossTraining: "Cross-training"
-        case .curling: "Curling"
-        case .cycling: "Vélo"
-        case .dance: "Danse"
-        case .elliptical: "Elliptique"
-        case .equestrianSports: "Équitation"
-        case .fencing: "Escrime"
-        case .fishing: "Pêche"
-        case .functionalStrengthTraining: "Renforcement fonctionnel"
-        case .golf: "Golf"
-        case .gymnastics: "Gymnastique"
-        case .handball: "Handball"
-        case .hiking: "Randonnée"
-        case .hockey: "Hockey"
-        case .hunting: "Chasse"
-        case .lacrosse: "Lacrosse"
-        case .martialArts: "Arts martiaux"
-        case .mindAndBody: "Corps et esprit"
-        case .mixedCardio: "Cardio mixte"
-        case .paddleSports: "Pagaie"
-        case .play: "Jeu"
-        case .preparationAndRecovery: "Préparation et récupération"
-        case .racquetball: "Racquetball"
-        case .rowing: "Aviron"
-        case .rugby: "Rugby"
-        case .running: "Course à pied"
-        case .sailing: "Voile"
-        case .skatingSports: "Patinage"
-        case .snowSports: "Sports de neige"
-        case .soccer: "Football"
-        case .softball: "Softball"
-        case .squash: "Squash"
-        case .stairClimbing: "Montée d'escaliers"
-        case .surfingSports: "Surf"
-        case .swimming: "Natation"
-        case .tableTennis: "Tennis de table"
-        case .tennis: "Tennis"
-        case .trackAndField: "Athlétisme"
-        case .traditionalStrengthTraining: "Musculation"
-        case .volleyball: "Volleyball"
-        case .walking: "Marche"
-        case .waterFitness: "Aquagym"
-        case .waterPolo: "Water-polo"
-        case .waterSports: "Sports nautiques"
-        case .wrestling: "Lutte"
-        case .yoga: "Yoga"
-        case .barre: "Barre"
-        case .coreTraining: "Gainage"
-        case .crossCountrySkiing: "Ski de fond"
-        case .downhillSkiing: "Ski alpin"
-        case .flexibility: "Souplesse"
-        case .highIntensityIntervalTraining: "HIIT"
-        case .jumpRope: "Corde à sauter"
-        case .kickboxing: "Kickboxing"
-        case .pilates: "Pilates"
-        case .snowboarding: "Snowboard"
-        case .stairs: "Escaliers"
-        case .stepTraining: "Step"
-        case .wheelchairWalkPace: "Fauteuil roulant (marche)"
-        case .wheelchairRunPace: "Fauteuil roulant (course)"
-        case .taiChi: "Tai chi"
-        case .mixedMetabolicCardioTraining: "Cardio métabolique"
-        case .pickleball: "Pickleball"
-        case .cooldown: "Récupération"
-        case .swimBikeRun: "Triathlon"
-        case .transition: "Transition"
-        case .underwaterDiving: "Plongée"
-        case .other: "Autre"
-        @unknown default: "Inconnu"
+        case .americanFootball: String(localized: "workout.americanFootball")
+        case .archery: String(localized: "workout.archery")
+        case .australianFootball: String(localized: "workout.australianFootball")
+        case .badminton: String(localized: "workout.badminton")
+        case .baseball: String(localized: "workout.baseball")
+        case .basketball: String(localized: "workout.basketball")
+        case .bowling: String(localized: "workout.bowling")
+        case .boxing: String(localized: "workout.boxing")
+        case .climbing: String(localized: "workout.climbing")
+        case .cricket: String(localized: "workout.cricket")
+        case .crossTraining: String(localized: "workout.crossTraining")
+        case .curling: String(localized: "workout.curling")
+        case .cycling: String(localized: "workout.cycling")
+        case .dance: String(localized: "workout.dance")
+        case .elliptical: String(localized: "workout.elliptical")
+        case .equestrianSports: String(localized: "workout.equestrianSports")
+        case .fencing: String(localized: "workout.fencing")
+        case .fishing: String(localized: "workout.fishing")
+        case .functionalStrengthTraining: String(localized: "workout.functionalStrengthTraining")
+        case .golf: String(localized: "workout.golf")
+        case .gymnastics: String(localized: "workout.gymnastics")
+        case .handball: String(localized: "workout.handball")
+        case .hiking: String(localized: "workout.hiking")
+        case .hockey: String(localized: "workout.hockey")
+        case .hunting: String(localized: "workout.hunting")
+        case .lacrosse: String(localized: "workout.lacrosse")
+        case .martialArts: String(localized: "workout.martialArts")
+        case .mindAndBody: String(localized: "workout.mindAndBody")
+        case .mixedCardio: String(localized: "workout.mixedCardio")
+        case .paddleSports: String(localized: "workout.paddleSports")
+        case .play: String(localized: "workout.play")
+        case .preparationAndRecovery: String(localized: "workout.preparationAndRecovery")
+        case .racquetball: String(localized: "workout.racquetball")
+        case .rowing: String(localized: "workout.rowing")
+        case .rugby: String(localized: "workout.rugby")
+        case .running: String(localized: "workout.running")
+        case .sailing: String(localized: "workout.sailing")
+        case .skatingSports: String(localized: "workout.skatingSports")
+        case .snowSports: String(localized: "workout.snowSports")
+        case .soccer: String(localized: "workout.soccer")
+        case .softball: String(localized: "workout.softball")
+        case .squash: String(localized: "workout.squash")
+        case .stairClimbing: String(localized: "workout.stairClimbing")
+        case .surfingSports: String(localized: "workout.surfingSports")
+        case .swimming: String(localized: "workout.swimming")
+        case .tableTennis: String(localized: "workout.tableTennis")
+        case .tennis: String(localized: "workout.tennis")
+        case .trackAndField: String(localized: "workout.trackAndField")
+        case .traditionalStrengthTraining: String(localized: "workout.traditionalStrengthTraining")
+        case .volleyball: String(localized: "workout.volleyball")
+        case .walking: String(localized: "workout.walking")
+        case .waterFitness: String(localized: "workout.waterFitness")
+        case .waterPolo: String(localized: "workout.waterPolo")
+        case .waterSports: String(localized: "workout.waterSports")
+        case .wrestling: String(localized: "workout.wrestling")
+        case .yoga: String(localized: "workout.yoga")
+        case .barre: String(localized: "workout.barre")
+        case .coreTraining: String(localized: "workout.coreTraining")
+        case .crossCountrySkiing: String(localized: "workout.crossCountrySkiing")
+        case .downhillSkiing: String(localized: "workout.downhillSkiing")
+        case .flexibility: String(localized: "workout.flexibility")
+        case .highIntensityIntervalTraining: String(localized: "workout.hiit")
+        case .jumpRope: String(localized: "workout.jumpRope")
+        case .kickboxing: String(localized: "workout.kickboxing")
+        case .pilates: String(localized: "workout.pilates")
+        case .snowboarding: String(localized: "workout.snowboarding")
+        case .stairs: String(localized: "workout.stairs")
+        case .stepTraining: String(localized: "workout.stepTraining")
+        case .wheelchairWalkPace: String(localized: "workout.wheelchairWalkPace")
+        case .wheelchairRunPace: String(localized: "workout.wheelchairRunPace")
+        case .taiChi: String(localized: "workout.taiChi")
+        case .mixedMetabolicCardioTraining: String(localized: "workout.mixedMetabolicCardio")
+        case .pickleball: String(localized: "workout.pickleball")
+        case .cooldown: String(localized: "workout.cooldown")
+        case .swimBikeRun: String(localized: "workout.swimBikeRun")
+        case .transition: String(localized: "workout.transition")
+        case .underwaterDiving: String(localized: "workout.underwaterDiving")
+        case .other: String(localized: "workout.other")
+        @unknown default: String(localized: "workout.unknown")
         }
     }
 
@@ -142,25 +142,25 @@ enum WorkoutTypeMapping {
 
     static func fitSport(for type: HKWorkoutActivityType) -> (sport: UInt8, subSport: UInt8) {
         switch type {
-        case .running: (1, 0)        // Running / Generic
-        case .cycling: (2, 0)        // Cycling / Generic
-        case .swimming: (5, 0)       // Swimming / Generic
-        case .walking: (11, 0)       // Walking / Generic
-        case .hiking: (17, 0)        // Hiking / Generic
-        case .rowing: (15, 0)        // Rowing / Generic
-        case .yoga: (43, 0)          // Yoga / Generic
-        case .crossTraining, .highIntensityIntervalTraining: (10, 0) // Training / Generic
+        case .running: (1, 0)
+        case .cycling: (2, 0)
+        case .swimming: (5, 0)
+        case .walking: (11, 0)
+        case .hiking: (17, 0)
+        case .rowing: (15, 0)
+        case .yoga: (43, 0)
+        case .crossTraining, .highIntensityIntervalTraining: (10, 0)
         case .traditionalStrengthTraining, .functionalStrengthTraining: (10, 0)
-        case .elliptical: (4, 0)     // Fitness Equipment / Generic
-        case .downhillSkiing: (13, 0)  // Alpine Skiing
-        case .crossCountrySkiing: (12, 0) // Cross Country Skiing
-        case .snowboarding: (14, 0)  // Snowboarding
-        case .surfingSports: (38, 0) // Surfing
-        case .golf: (25, 0)          // Golf
-        case .soccer: (7, 0)         // Soccer
-        case .tennis: (8, 0)         // Tennis
-        case .basketball: (6, 0)     // Basketball
-        default: (0, 0)              // Generic
+        case .elliptical: (4, 0)
+        case .downhillSkiing: (13, 0)
+        case .crossCountrySkiing: (12, 0)
+        case .snowboarding: (14, 0)
+        case .surfingSports: (38, 0)
+        case .golf: (25, 0)
+        case .soccer: (7, 0)
+        case .tennis: (8, 0)
+        case .basketball: (6, 0)
+        default: (0, 0)
         }
     }
 }

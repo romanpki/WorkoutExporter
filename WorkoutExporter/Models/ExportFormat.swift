@@ -38,12 +38,12 @@ enum ExportFormat: String, CaseIterable, Identifiable {
 
     var description: String {
         switch self {
-        case .gpx: "GPS Exchange Format — tracé + FC, compatible Strava/Garmin"
-        case .tcx: "Training Center XML — données physiologiques détaillées"
-        case .fit: "Flexible & Interoperable Data Transfer — format binaire Garmin"
-        case .csv: "Tableau — exploitable dans Excel/Google Sheets"
-        case .json: "JSON — export brut complet de toutes les données"
-        case .xml: "XML — format Apple Health Export"
+        case .gpx: String(localized: "format.gpx.desc")
+        case .tcx: String(localized: "format.tcx.desc")
+        case .fit: String(localized: "format.fit.desc")
+        case .csv: String(localized: "format.csv.desc")
+        case .json: String(localized: "format.json.desc")
+        case .xml: String(localized: "format.xml.desc")
         }
     }
 
@@ -61,7 +61,7 @@ enum ExportFormat: String, CaseIterable, Identifiable {
     var supportsRoute: Bool {
         switch self {
         case .gpx, .tcx, .fit: true
-        case .csv, .json, .xml: true // included in data, just not primary purpose
+        case .csv, .json, .xml: true
         }
     }
 }
