@@ -1153,6 +1153,22 @@
         }
       }
     },
+    "strava.error.notConfigured": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Strava credentials not configured. Open StravaConstants.swift and replace the placeholder values with your Client ID and Client Secret from strava.com/settings/api."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifiants Strava non configurés. Ouvrez StravaConstants.swift et remplacez les valeurs par défaut avec votre Client ID et Client Secret depuis strava.com/settings/api."
+          }
+        }
+      }
+    },
     "strava.error.noCode": {
       "localizations": {
         "en": {
