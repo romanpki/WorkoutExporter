@@ -43,6 +43,11 @@ final class StravaAuthManager {
     func authorize() async {
         errorMessage = nil
 
+        guard StravaConstants.isConfigured else {
+            errorMessage = String(localized: "strava.error.notConfigured")
+            return
+        }
+
         var components = URLComponents(string: StravaConstants.authorizeURL)!
         components.queryItems = [
             URLQueryItem(name: "client_id", value: StravaConstants.clientID),
